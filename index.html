@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pomodoro</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/6b330cd79e.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="app-container">
+        <h1>Pomodoro</h1>
+         
+        <div class="timer-container">
+            <p class="timer">25:00</p>
+            <p class="message">Focus time!</p>
+            <div class="count-container">
+                <div class="session-count"></div>
+                <div class="session-count"></div>
+                <div class="session-count"></div>
+                <div class="session-count"></div>
+            </div>
+        </div>
+        
+
+        <div class="button-container">
+            <p class="button start"><i class="fas fa-play-circle"></i></p>
+            <p class="button pause"><i class="fas fa-pause-circle"></i></p>
+            <p class="button stop"><i class="fas fa-stop-circle"></i></p>
+        </div>
+
+        <div class="settings-container">
+            <div class="setting session">
+                <p>Session:</p>
+                <div>
+                    <i class="fas fa-chevron-circle-down"></i>
+                    <p class="session-time">25:00</p>
+                    <i class="fas fa-chevron-circle-up"></i>
+                </div>
+            </div>
+
+            <div class="setting short">
+                <p>Short break:</p>
+                <div>
+                    <i class="fas fa-chevron-circle-down"></i>
+                    <p class="short-break-time">5:00</p>
+                    <i class="fas fa-chevron-circle-up"></i>
+                </div>
+            </div>
+
+            <div class="setting long">
+                <p>Long break:</p>
+                <div>
+                    <i class="fas fa-chevron-circle-down"></i>
+                    <p class="long-break-time">30:00</p>
+                    <i class="fas fa-chevron-circle-up"></i>
+                </div>
+            </div>
+            
+            <p class="reset">Reset to default</p>
+        </div>
+
+    </div>
+</body>
+</html>
