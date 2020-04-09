@@ -6,6 +6,8 @@
     <title>Pomodoro</title>
 
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="reset.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Open+Sans&display=swap" rel="stylesheet">
     <script type="text/javascript"> (function() { var css = document.createElement('link'); css.href = 'https://use.fontawesome.com/releases/v5.1.0/css/all.css'; css.rel = 'stylesheet'; css.type = 'text/css'; document.getElementsByTagName('head')[0].appendChild(css); })(); </script>
 </head>
 <body>
@@ -13,10 +15,10 @@
         <h1>Pomodoro</h1>
          
         <div class="timer-container">
-            <p class="timer">25:00</p>
             <p class="message">Focus time!</p>
+            <p class="timer">25:00</p>
             <div class="count-container">
-                <div class="session-count"></div>
+                <div class="session-count complete"></div>
                 <div class="session-count"></div>
                 <div class="session-count"></div>
                 <div class="session-count"></div>
@@ -31,31 +33,26 @@
         </div>
 
         <div class="settings-container">
-            <div class="setting session">
-                <p>Session:</p>
-                <div>
-                    <i class="fas fa-chevron-circle-down"></i>
-                    <p class="session-time">25:00</p>
-                    <i class="fas fa-chevron-circle-up"></i>
-                </div>
+               
+            <p class="session">Session:</p>
+            <div class="setting session">       
+                <i class="button fas fa-chevron-circle-down"></i>
+                <p class="session-time">25:00</p>
+                <i class="button fas fa-chevron-circle-up"></i>
             </div>
-
+                
+            <p class="short">Short break:</p>
             <div class="setting short">
-                <p>Short break:</p>
-                <div>
-                    <i class="fas fa-chevron-circle-down"></i>
-                    <p class="short-break-time">5:00</p>
-                    <i class="fas fa-chevron-circle-up"></i>
-                </div>
+                <i class="button fas fa-chevron-circle-down"></i>
+                <p class="short-break-time">5:00</p>
+                <i class="button fas fa-chevron-circle-up"></i>
             </div>
-
+                
+            <p class="long">Long break:</p>
             <div class="setting long">
-                <p>Long break:</p>
-                <div>
-                    <i class="fas fa-chevron-circle-down"></i>
-                    <p class="long-break-time">30:00</p>
-                    <i class="fas fa-chevron-circle-up"></i>
-                </div>
+                <i class="button fas fa-chevron-circle-down"></i>
+                <p class="long-break-time">30:00</p>
+                <i class="button fas fa-chevron-circle-up"></i>
             </div>
             
             <p class="reset">Reset to default</p>
