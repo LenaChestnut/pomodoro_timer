@@ -119,7 +119,7 @@ h1 {
     color: var(--yellow);
 }
 
-.button, .reset {
+.button {
     cursor: pointer;
 }
 
