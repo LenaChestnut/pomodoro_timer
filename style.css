@@ -40,9 +40,6 @@ h1 {
     font-size: 3.9em;
     font-weight: 400;
     margin-bottom: 15px;
-}
-
-.focus {
     color: var(--red);
 }
 
