@@ -2,11 +2,12 @@
 const buttons = document.querySelectorAll(".button");
 const timer = document.querySelector(".timer");
 const message = document.querySelector(".message");
+const sessionCounter = document.querySelectorAll(".session-count");
 
 // TRACKERS
 let intervalStarted = false;
 let sessionCount = 0;
-let sessionStarted = false;
+let sessionCompleted = false;
 let pausePressed = false;
 let timePassed = 0;
 let timeLeft;
@@ -77,23 +78,50 @@ function countDown() {
         timer.textContent = updateTimer(timeLeft);
 
         if (timeLeft === 0) {
+
             clearInterval(interval);
             intervalStarted = false;
+
             //toggle session and break
-            sessionStarted = !sessionStarted;
+            sessionCompleted = !sessionCompleted;
+
+            if (sessionCompleted && sessionCount !== 4) {
+                sessionCount+=1;
+                updateCountDisplay();
+            } else if (!sessionCompleted && sessionCount === 4) {
+                sessionCount = 0;
+                updateCountDisplay();
+            }
         }
     }, 1000);
 }
 
+function updateCountDisplay() {
+    let arrCounter = Array.from(sessionCounter);
+
+    arrCounter.forEach((counter) => {
+        counter.classList.remove("complete");
+    })
+
+    for (let i = 0; i < sessionCount; i++) {
+        arrCounter[i].classList.add("complete");
+    }
+}
+
 function setCurrentTime() {
 
-    if (!sessionStarted) {
+    if (!sessionCompleted) {
         currentTime = sessionTime;
         timer.textContent = updateTimer(currentTime);
         timer.classList.remove("break");
         timePassed = 0;
-    } else if (sessionStarted) {
+    } else if (sessionCompleted && sessionCount !== 4) {
         currentTime = shortTime;
+        timer.textContent = updateTimer(currentTime);
+        timer.classList.add("break");
+        timePassed = 0;
+    } else if (sessionCompleted && sessionCount === 4) {
+        currentTime = longTime;
         timer.textContent = updateTimer(currentTime);
         timer.classList.add("break");
         timePassed = 0;
@@ -103,13 +131,12 @@ function setCurrentTime() {
 }
 
 function displayMessage() {
-    if (!sessionStarted) {
+    if (!sessionCompleted) {
         message.textContent = "Focus!";
-    } else if (sessionStarted) {
+    } else if (sessionCompleted) {
         message.textContent = "Time for a break";
     }
 }
-
 
 function pauseTimer() {
     clearInterval(interval);
@@ -126,6 +153,6 @@ function stopTimer() {
     intervalStarted = false;
 
     if (timeLeft === 0) {
-        sessionStarted = !sessionStarted;
+        sessionCompleted = !sessionCompleted;
     }
 }
