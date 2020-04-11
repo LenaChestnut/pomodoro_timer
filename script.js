@@ -229,7 +229,7 @@ function updateSettings(time, setting, button) {
         }
     }
     setting.textContent = formatTime(time);
-    currentTime = time;
+    currentTime = sessionTime;
     stopTimer();
     return time;
 }
