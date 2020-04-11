@@ -7,6 +7,8 @@ const sessionSetting = document.querySelector(".session-time");
 const shortSetting = document.querySelector(".short-break-time");
 const longSetting = document.querySelector(".long-break-time");
 let popup = null;
+const notification = document.querySelector("#notification");
+notification.volume = 0.2;
 
 // TRACKERS
 let intervalStarted = false;
@@ -129,6 +131,8 @@ function countDown() {
                 sessionCount = 0;
                 updateCountDisplay();
             }
+
+            notification.play();
         }
     }, 1000);
 }
