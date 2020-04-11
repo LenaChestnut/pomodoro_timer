@@ -246,6 +246,5 @@ function reset() {
         sessionCount = 0;
         sessionCompleted = false;
         updateCountDisplay();
-
     }
 }

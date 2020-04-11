@@ -93,25 +93,15 @@ h1 {
     color: var(--green);
 }
 
-.start:not(:focus):hover {
-    color: var(--hover-green)
-}
-
 .pause {
     color: var(--yellow);
-}
-
-.pause:hover {
-    color: var(--hover-yellow);
 }
 
 .stop {
     color: var(--red);
 }
 
-.stop:hover {
-    color: var(--hover-red);
-}
+
 
 .settings-container {
     display: grid;
@@ -157,6 +147,23 @@ h1 {
     color: var(--black);
 }
 
-.reset:hover {
-    color: var(--red);
+
+
+/* Disable hover effect on mobile */
+@media not all and (pointer: coarse) {
+    .start:hover {
+        color: var(--hover-green)
+    }
+    
+    .pause:hover {
+        color: var(--hover-yellow);
+    }
+    
+    .stop:hover {
+        color: var(--hover-red);
+    }
+
+    .reset:hover {
+        color: var(--red);
+    }
 }
