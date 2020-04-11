@@ -18,13 +18,13 @@ let timeLeft = null;
 let interval = null;
 
 // SETTINGS
-// const DEFAULT_SESSION = 1500;
-// const DEFAULT_SHORT = 300;
-// const DEFAULT_LONG = 1800;
+const DEFAULT_SESSION = 1500;
+const DEFAULT_SHORT = 300;
+const DEFAULT_LONG = 1800;
 
-const DEFAULT_SESSION = 5;
-const DEFAULT_SHORT = 5;
-const DEFAULT_LONG = 10;
+// const DEFAULT_SESSION = 5;
+// const DEFAULT_SHORT = 5;
+// const DEFAULT_LONG = 10;
 
 let sessionTime = DEFAULT_SESSION;
 let shortTime = DEFAULT_SHORT;
@@ -233,6 +233,9 @@ function updateSettings(time, setting, button) {
 function reset() {
     let agreed = confirm("All progress will be lost. Are you sure?");
     if (agreed) {
+        buttons.forEach((button) => {
+            button.classList.remove("inactive");
+        });
         sessionTime = DEFAULT_SESSION;
         shortTime = DEFAULT_SHORT;
         longTime = DEFAULT_LONG;
@@ -243,5 +246,6 @@ function reset() {
         sessionCount = 0;
         sessionCompleted = false;
         updateCountDisplay();
+
     }
 }
