@@ -194,7 +194,6 @@ function updateCountDisplay() {
 
 // SETTINGS
 function updateSettings(time, setting, button) {
-    stopTimer();
     updateCountDisplay();
     //select set of setting buttons to keep track of inactive buttons
     let controls;
@@ -226,6 +225,8 @@ function updateSettings(time, setting, button) {
         }
     }
     setting.textContent = formatTime(time);
+    currentTime = time;
+    stopTimer();
     return time;
 }
 
