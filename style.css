@@ -93,7 +93,7 @@ h1 {
     color: var(--green);
 }
 
-.start:hover {
+.start:not(:focus):hover {
     color: var(--hover-green)
 }
 
