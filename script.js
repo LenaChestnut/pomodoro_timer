@@ -20,9 +20,13 @@ let timeLeft = null;
 let interval = null;
 
 // SETTINGS
-const DEFAULT_SESSION = 1500;
-const DEFAULT_SHORT = 300;
-const DEFAULT_LONG = 1800;
+// const DEFAULT_SESSION = 1500;
+// const DEFAULT_SHORT = 300;
+// const DEFAULT_LONG = 1800;
+
+const DEFAULT_SESSION = 5;
+const DEFAULT_SHORT = 3;
+const DEFAULT_LONG = 10;
 
 let sessionTime = DEFAULT_SESSION;
 let shortTime = DEFAULT_SHORT;
@@ -71,15 +75,16 @@ function getButton(btn) {
             settingCommand = "up";
         }
 
-        if (btn.parentNode.classList.contains("session")) {
+        let parent = btn.parentNode;
+
+        if (parent.classList.contains("session")) {
             sessionTime = updateSettings(sessionTime, sessionSetting, btn);
-        } else if (btn.parentNode.classList.contains("short")) {
+        } else if (parent.classList.contains("short")) {
             shortTime = updateSettings(shortTime, shortSetting, btn);
-        } else if (btn.parentNode.classList.contains("long")) {
+        } else if (parent.classList.contains("long")) {
             longTime = updateSettings(longTime, longSetting, btn);
         }
 
-        timer.textContent = formatTime(sessionTime);   
     } else if (btn.classList.contains("reset")) {
         reset();
     }
@@ -224,9 +229,16 @@ function updateSettings(time, setting, button) {
             button.classList.add("inactive");
         }
     }
-    currentTime = time;
+    
     setting.textContent = formatTime(time);
-    stopTimer();
+    // stopTimer if setting changes current interval
+    if ((setting === sessionSetting && !timer.classList.contains("break")) || 
+    (setting === shortSetting && timer.classList.contains("break") && sessionCount !== 4) ||
+    (setting === longSetting && timer.classList.contains("break") && sessionCount === 4)) {
+        currentTime = time;
+        stopTimer();
+    }
+    
     return time;
 }
 
