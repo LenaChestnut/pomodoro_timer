@@ -20,13 +20,9 @@ let timeLeft = null;
 let interval = null;
 
 // SETTINGS
-// const DEFAULT_SESSION = 1500;
-// const DEFAULT_SHORT = 300;
-// const DEFAULT_LONG = 1800;
-
-const DEFAULT_SESSION = 5;
-const DEFAULT_SHORT = 3;
-const DEFAULT_LONG = 10;
+const DEFAULT_SESSION = 1500;
+const DEFAULT_SHORT = 300;
+const DEFAULT_LONG = 1800;
 
 let sessionTime = DEFAULT_SESSION;
 let shortTime = DEFAULT_SHORT;
@@ -45,7 +41,6 @@ function setInitial() {
 }
 
 setInitial();
-
 // TIMER LOGIC
 
 buttons.forEach((button) => {
@@ -231,7 +226,7 @@ function updateSettings(time, setting, button) {
     }
     
     setting.textContent = formatTime(time);
-    // stopTimer if setting changes current interval
+    // stopTimer if setting changes the current interval
     if ((setting === sessionSetting && !timer.classList.contains("break")) || 
     (setting === shortSetting && timer.classList.contains("break") && sessionCount !== 4) ||
     (setting === longSetting && timer.classList.contains("break") && sessionCount === 4)) {
