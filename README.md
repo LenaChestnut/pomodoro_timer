@@ -29,7 +29,7 @@ This a practice project. It should have the following functionality:
 
 ### Mobile
 
-![image](https://user-images.githubusercontent.com/29921988/94341039-fa12a480-000e-11eb-88b9-1642b64c69e4.png)
+![image](https://user-images.githubusercontent.com/29921988/94341160-ffbcba00-000f-11eb-838a-5509bf6e6b83.png)
 
 ## Tools
 
